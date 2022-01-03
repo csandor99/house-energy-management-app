@@ -10,6 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EnergyManagementApp">
         <activity
+            android:name=".ECarChargingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BatteryManagmentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SlopeAdjustmentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SlopeAdjustmentActivicty"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
