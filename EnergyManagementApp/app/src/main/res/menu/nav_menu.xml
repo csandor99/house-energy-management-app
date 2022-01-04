@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="Home"/>
+
+    <item
+        android:id="@+id/nav_battery"
+        android:icon="@drawable/ic_baseline_battery_charging_full_24"
+        android:title="Battery management"/>
+
+    <item
+        android:id="@+id/nav_devices"
+        android:icon="@drawable/ic_baseline_devices_other_24"
+        android:title="Device management"/>
+
+    <item
+        android:id="@+id/nav_consumption"
+        android:icon="@drawable/ic_baseline_calendar_month_24"
+        android:title="Consumption planning"/>
+
+    <item
+        android:id="@+id/nav_slope"
+        android:icon="@drawable/ic_baseline_slope_rotation_24"
+        android:title="Slope adjustment"/>
+
+    <item
+        android:id="@+id/nav_efficiency"
+        android:icon="@drawable/ic_baseline_eco_24"
+        android:title="Manage efficiency"/>
+
+    <item
+        android:id="@+id/nav_provider"
+        android:icon="@drawable/ic_baseline_power_24"
+        android:title="Choose provider"/>
+
+    <item
+        android:id="@+id/nav_ecar"
+        android:icon="@drawable/ic_baseline_electric_car_24"
+        android:title="E-Car management"/>
+
+    <item android:title="Profile">
+        <menu>
+            <item
+                android:id="@+id/logout"
+                android:icon="@drawable/ic_baseline_logout_24"
+                android:title="Log out"/>
+        </menu>
+    </item>
+</menu>

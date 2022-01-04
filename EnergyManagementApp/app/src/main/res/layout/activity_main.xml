@@ -1,18 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="68dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="72dp"
+        android:text="Energy management"
+        android:textSize="30dp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/usernameField"
+        android:layout_width="330dp"
+        android:layout_height="69dp"
+        android:hint="Username"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:id="@+id/errorMsgUser"
+        android:layout_width="304dp"
+        android:layout_height="25dp"
+        android:text=""
+        android:textColor="@color/teal_200"
+        android:layout_gravity="center"/>
+
+
+    <EditText
+        android:id="@+id/passwordField"
+        android:layout_width="330dp"
+        android:layout_height="63dp"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:id="@+id/errorMsgPass"
+        android:layout_width="304dp"
+        android:layout_height="25dp"
+        android:text=""
+        android:textColor="@color/teal_200"
+        android:layout_gravity="center"/>
+
+    <Button
+        android:id="@+id/loginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="Login"
+        android:layout_gravity="center"
+        android:onClick="submit" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/errorMsg"
+        android:layout_width="304dp"
+        android:layout_height="25dp"
+        android:text=""
+        android:textColor="@color/teal_200"
+        android:layout_gravity="center"/>
+
+</LinearLayout>
