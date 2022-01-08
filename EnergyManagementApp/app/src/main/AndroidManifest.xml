@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EnergyManagementApp">
         <activity
+            android:name=".energySource.EnergySourceActivity"
+            android:exported="false" />
+        <activity
             android:name=".manageEfficiency.PanelManagementActivity"
             android:exported="false" />
         <activity
