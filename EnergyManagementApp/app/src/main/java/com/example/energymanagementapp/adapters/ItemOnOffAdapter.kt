@@ -9,27 +9,28 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.energymanagementapp.R
 import com.example.energymanagementapp.models.Source
 
-class EnergySourceAdapter(val context: Context) : RecyclerView.Adapter<EnergySourceAdapter.MyViewHolder>(){
-    var sourceList: List<Source> = listOf()
+class ItemOnOffAdapter (val context: Context): RecyclerView.Adapter<ItemOnOffAdapter.MyViewHolder>(){
+    var itemList: List<Source> = listOf()
     var position: Int = 0
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
 
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.energy_source,parent,false)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemOnOffAdapter.MyViewHolder {
+
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_onoff,parent,false)
         return MyViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.name.text = sourceList.get(position).name
+    override fun onBindViewHolder(holder: ItemOnOffAdapter.MyViewHolder, position: Int) {
+        holder.name.text = itemList.get(position).name
     }
 
     override fun getItemCount(): Int {
-        return sourceList.size
+        return itemList.size
     }
 
-    fun setEnergySourceList(sourceList: List<Source>)
+    fun setItemsList(sourceList: List<Source>)
     {
-        this.sourceList = sourceList
+        this.itemList = sourceList
         notifyDataSetChanged()
     }
 
@@ -39,4 +40,5 @@ class EnergySourceAdapter(val context: Context) : RecyclerView.Adapter<EnergySou
         var name: TextView = itemView!!.findViewById(R.id.item_name)
 
     }
+
 }

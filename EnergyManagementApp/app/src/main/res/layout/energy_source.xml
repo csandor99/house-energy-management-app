@@ -15,7 +15,7 @@
         app:srcCompat="@drawable/ic_sun_foreground" />
 
     <TextView
-        android:id="@+id/source_name"
+        android:id="@+id/item_name"
         android:layout_width="201dp"
         android:layout_height="41dp"
         android:layout_marginStart="16dp"

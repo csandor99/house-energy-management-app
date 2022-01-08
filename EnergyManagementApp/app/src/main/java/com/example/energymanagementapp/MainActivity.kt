@@ -8,6 +8,7 @@ import android.widget.EditText
 import android.widget.TextView
 import com.example.energymanagementapp.energySource.EnergySourceActivity
 import com.example.energymanagementapp.manageEfficiency.PanelManagementActivity
+import com.example.energymanagementapp.turnOnOff.TurnOnOffActivity
 import com.google.android.material.textfield.TextInputEditText
 
 class MainActivity : AppCompatActivity() {
@@ -45,7 +46,8 @@ class MainActivity : AppCompatActivity() {
             if(username.text.toString() == "admin" && password.text.toString() == "password"){
                 //val intent = Intent ( this, MainPageActivity::class.java )
                 //val intent = Intent ( this, PanelManagementActivity::class.java )
-                val intent = Intent ( this, EnergySourceActivity::class.java )
+                //val intent = Intent ( this, EnergySourceActivity::class.java )
+                val intent = Intent ( this, TurnOnOffActivity::class.java )
                 startActivity ( intent )
             }else{
                 errorMessage.text = "Wrong username or password!"
