@@ -11,37 +11,73 @@
         android:id="@+id/eCarSpinner"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:background="@android:drawable/btn_dropdown"
         android:spinnerMode="dropdown"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="280dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textEstimateView" />
+
+    <ImageView
+        android:id="@+id/eCarIcon"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.068"
+        app:srcCompat="@drawable/ecar_icon" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:text="Apply"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.458"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/eCarSpinner" />
+        app:layout_constraintTop_toBottomOf="@+id/eCarSpinner"
+        app:layout_constraintVertical_bias="0.083" />
 
     <ProgressBar
-        android:id="@+id/progressBar"
-        style = "@android:style/Widget.ProgressBar.Horizontal"        android:layout_width="172dp"
+        android:id="@+id/progressBarBattery"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="172dp"
         android:layout_height="41dp"
+        android:layout_marginTop="36dp"
         android:max="100"
-        android:progress="30"
 
-        app:layout_constraintBottom_toTopOf="@+id/eCarSpinner"
+        android:progress="30"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.15"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.607" />
+        app:layout_constraintTop_toBottomOf="@+id/eCarIcon" />
+
+    <TextView
+        android:id="@+id/textBatteryView"
+        android:layout_width="88dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="48dp"
+        android:text="30%"
+        app:layout_constraintStart_toEndOf="@+id/progressBarBattery"
+        app:layout_constraintTop_toBottomOf="@+id/eCarIcon" />
+
+    <TextView
+        android:id="@+id/textEstimateView"
+        android:layout_width="278dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="20dp"
+        android:text="Estimate time to fully charged - 4h"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.36"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progressBarBattery" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
