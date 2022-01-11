@@ -6,7 +6,6 @@ import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -25,8 +24,13 @@ import com.github.mikephil.charting.formatter.PercentFormatter
 import com.github.mikephil.charting.utils.ColorTemplate
 import com.google.android.material.navigation.NavigationView
 import android.widget.CalendarView.OnDateChangeListener
+import com.example.energymanagementapp.energySource.EnergySourceActivity
+import com.example.energymanagementapp.manageEfficiency.PanelManagementActivity
+import com.example.energymanagementapp.turnOnOff.TurnOnOffActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.textfield.TextInputLayout
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class MainPageActivity : AppCompatActivity() {
@@ -36,6 +40,8 @@ class MainPageActivity : AppCompatActivity() {
     lateinit var barChart: HorizontalBarChart
 
     var scoresList: ArrayList<Score> = ArrayList<Score>()
+    var scoresList2: ArrayList<Score> = ArrayList<Score>()
+
     var calendar:ImageView? = null
     var calendarView: CalendarView? = null
     var date: TextView? = null
@@ -54,7 +60,7 @@ class MainPageActivity : AppCompatActivity() {
         pieChart = findViewById(R.id.pieChart)
         barChart = findViewById(R.id.barChart)
         calendar = findViewById(R.id.calendar)
-        calendarView = findViewById(R.id.calendarView)
+        calendarView = findViewById(R.id.calendarViewMainPage)
         calendarView?.visibility = View.INVISIBLE
         searchText = findViewById(R.id.searchText)
         searchText?.visibility = View.INVISIBLE
@@ -100,14 +106,21 @@ class MainPageActivity : AppCompatActivity() {
                 R.id.nav_devices -> Toast.makeText(applicationContext, "Clicked devices", Toast.LENGTH_SHORT).show()
                 R.id.nav_consumption -> Toast.makeText(applicationContext, "Clicked consumption", Toast.LENGTH_SHORT).show()
                 R.id.nav_slope -> Toast.makeText(applicationContext, "Clicked slope", Toast.LENGTH_SHORT).show()
-                R.id.nav_efficiency -> Toast.makeText(applicationContext, "Clicked efficiency", Toast.LENGTH_SHORT).show()
-                R.id.nav_provider -> Toast.makeText(applicationContext, "Clicked provider", Toast.LENGTH_SHORT).show()
+                R.id.nav_efficiency -> {
+                    val intent = Intent ( this, PanelManagementActivity::class.java )
+                    startActivity ( intent )
+                //Toast.makeText(applicationContext, "Clicked efficiency", Toast.LENGTH_SHORT).show()}
+                }
+                R.id.nav_provider -> {
+                    val intent = Intent ( this, EnergySourceActivity::class.java )
+                    startActivity ( intent )
+                //Toast.makeText(applicationContext, "Clicked provider", Toast.LENGTH_SHORT).show()
+                }
                 R.id.nav_ecar -> Toast.makeText(applicationContext, "Clicked ecar", Toast.LENGTH_SHORT).show()
                 R.id.logout -> logout()
             }
             true
         }
-
 
 
         calendar?.setOnClickListener(object : View.OnClickListener {
@@ -119,16 +132,70 @@ class MainPageActivity : AppCompatActivity() {
 
                 calendarView?.setOnDateChangeListener(OnDateChangeListener { view, year, month, dayOfMonth ->
                     var m = month + 1
-                    date?.text = dayOfMonth.toString() + "/" + m.toString() + "/" + year.toString() + "(kw/day)"
+
+
+                    var calendar = Calendar.getInstance();
+                    var dateFormat = SimpleDateFormat("dd/MM/yyyy");
+                    var today = dateFormat.format(calendar.getTime());
+
+                    var d = ""
+                    if(1<= m && m <=9)
+                    {
+                        d = dayOfMonth.toString() + "/0" + m.toString() + "/" + year.toString()
+                    }else
+                    {
+                        d = dayOfMonth.toString() + "/" + m.toString() + "/" + year.toString()
+                    }
+
+
+                    date?.text = d + "(kw/day)"
                     calendarView?.visibility = View.INVISIBLE
 
                     pieChart?.visibility = View.VISIBLE
                     barChart?.visibility = View.VISIBLE
 
+
+                    barChart.data?.clearValues()
+                    barChart.notifyDataSetChanged()
+                    barChart.clear()
+                    barChart.invalidate()
+                    initBarChart()
+
+
+                    if(today.compareTo(d, false) < 0)
+                    {
+                        scoresList2 = ArrayList<Score>()
+
+                    }else
+                    {
+                        scoresList2 = getScoreList2()
+                        val entries2: ArrayList<BarEntry> = ArrayList()
+
+                        for (i in scoresList2.indices) {
+                            val score = scoresList2[i]
+                            entries2.add(BarEntry(i.toFloat(), score.score.toFloat()))
+                        }
+
+                        val barDataSet = BarDataSet(entries2, "")
+                        barDataSet.setColors(*ColorTemplate.COLORFUL_COLORS)
+
+                        val data = BarData(barDataSet)
+                        barChart.data = data
+
+                        barChart.invalidate()
+
+                    }
+
                 })
             }
 
         })
+
+        searchButton?.setOnClickListener({
+            val intent = Intent ( this, TurnOnOffActivity::class.java )
+            startActivity ( intent )
+        })
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -147,6 +214,7 @@ class MainPageActivity : AppCompatActivity() {
                     searchButton?.visibility = View.VISIBLE
                     title?.visibility = View.INVISIBLE
                     check = true
+
                 }else
                 {
                     searchText?.visibility = View.INVISIBLE
@@ -311,6 +379,15 @@ class MainPageActivity : AppCompatActivity() {
         scoresList.add(Score("Other", 18.23))
 
         return scoresList
+    }
+
+    private fun getScoreList2(): ArrayList<Score> {
+        scoresList2.add(Score("Exported", 9.0))
+        scoresList2.add(Score("Boiler", 16.15))
+        scoresList2.add(Score("Car", 5.3))
+        scoresList2.add(Score("Other", 20.7))
+
+        return scoresList2
     }
 
 

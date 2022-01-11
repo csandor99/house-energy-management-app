@@ -80,7 +80,7 @@
             app:srcCompat="@drawable/ic_baseline_calendar_month_24" />
 
         <CalendarView
-            android:id="@+id/calendarView"
+            android:id="@+id/calendarViewMainPage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#98ABA7"

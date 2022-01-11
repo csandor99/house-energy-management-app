@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/sun"
         android:layout_width="56dp"
         android:layout_height="40dp"
         android:layout_marginEnd="16dp"
@@ -24,27 +24,27 @@
         android:text="TextView"
         android:textColor="#000000"
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView4"
+        app:layout_constraintEnd_toStartOf="@+id/lightning"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/lightning"
         android:layout_width="56dp"
         android:layout_height="40dp"
         android:layout_marginTop="46dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/switch1"
+        app:layout_constraintEnd_toStartOf="@+id/switchOnOff"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_lightning_foreground" />
 
     <Switch
-        android:id="@+id/switch1"
+        android:id="@+id/switchOnOff"
         android:layout_width="58dp"
         android:layout_height="40dp"
         android:layout_marginTop="46dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageView5"
+        app:layout_constraintEnd_toStartOf="@+id/sun"
         app:layout_constraintTop_toTopOf="parent" />
 
 
