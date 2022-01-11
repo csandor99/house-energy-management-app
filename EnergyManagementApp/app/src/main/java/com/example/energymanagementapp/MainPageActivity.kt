@@ -24,6 +24,8 @@ import com.github.mikephil.charting.formatter.PercentFormatter
 import com.github.mikephil.charting.utils.ColorTemplate
 import com.google.android.material.navigation.NavigationView
 import android.widget.CalendarView.OnDateChangeListener
+import com.example.energymanagementapp.consumptionplanner.ConsumptionPlanner
+import com.example.energymanagementapp.devicemanager.DeviceManager
 import com.example.energymanagementapp.energySource.EnergySourceActivity
 import com.example.energymanagementapp.manageEfficiency.PanelManagementActivity
 import com.example.energymanagementapp.turnOnOff.TurnOnOffActivity
@@ -101,10 +103,10 @@ class MainPageActivity : AppCompatActivity() {
 
         navView.setNavigationItemSelectedListener {
             when(it.itemId) {
-                R.id.nav_home -> Toast.makeText(applicationContext, "Clicked home", Toast.LENGTH_SHORT).show()
+                R.id.nav_home -> startActivity ( Intent ( this, MainPageActivity::class.java ) )
                 R.id.nav_battery -> startActivity ( Intent ( this, BatteryManagmentActivity::class.java ) )
-                R.id.nav_devices -> Toast.makeText(applicationContext, "Clicked devices", Toast.LENGTH_SHORT).show()
-                R.id.nav_consumption -> Toast.makeText(applicationContext, "Clicked consumption", Toast.LENGTH_SHORT).show()
+                R.id.nav_devices -> startActivity ( Intent ( this, DeviceManager::class.java ) )
+                R.id.nav_consumption -> startActivity ( Intent ( this, ConsumptionPlanner::class.java ) )
                 R.id.nav_slope -> startActivity ( Intent ( this, SlopeAdjustmentActivity::class.java ) )
                 R.id.nav_efficiency -> {
                     val intent = Intent ( this, PanelManagementActivity::class.java )

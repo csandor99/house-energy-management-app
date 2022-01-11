@@ -37,11 +37,7 @@
         <activity
             android:name=".manageEfficiency.PanelManagementActivity"
             android:exported="false" />
-        <activity
-            android:name=".LandingPageActivity"
-            android:exported="false"
-            android:label="@string/title_activity_landing_page"
-            android:theme="@style/Theme.EnergyManagementApp.NoActionBar" />
+
         <activity
             android:name=".MainPageActivity"
             android:exported="false" />
@@ -54,9 +50,7 @@
         <activity
             android:name=".SlopeAdjustmentActivity"
             android:exported="false" />
-        <activity
-            android:name=".SlopeAdjustmentActivicty"
-            android:exported="false" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
