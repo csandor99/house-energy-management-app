@@ -31,13 +31,13 @@ class MainPageActivity : AppCompatActivity() {
         navView.setNavigationItemSelectedListener {
             when(it.itemId) {
                 R.id.nav_home -> Toast.makeText(applicationContext, "Clicked home", Toast.LENGTH_SHORT).show()
-                R.id.nav_battery -> Toast.makeText(applicationContext, "Clicked battery", Toast.LENGTH_SHORT).show()
+                R.id.nav_battery -> startActivity ( Intent ( this, BatteryManagmentActivity::class.java ) )
                 R.id.nav_devices -> Toast.makeText(applicationContext, "Clicked devices", Toast.LENGTH_SHORT).show()
                 R.id.nav_consumption -> Toast.makeText(applicationContext, "Clicked consumption", Toast.LENGTH_SHORT).show()
-                R.id.nav_slope -> Toast.makeText(applicationContext, "Clicked slope", Toast.LENGTH_SHORT).show()
+                R.id.nav_slope -> startActivity ( Intent ( this, SlopeAdjustmentActivity::class.java ) )
                 R.id.nav_efficiency -> Toast.makeText(applicationContext, "Clicked efficiency", Toast.LENGTH_SHORT).show()
                 R.id.nav_provider -> Toast.makeText(applicationContext, "Clicked provider", Toast.LENGTH_SHORT).show()
-                R.id.nav_ecar -> Toast.makeText(applicationContext, "Clicked ecar", Toast.LENGTH_SHORT).show()
+                R.id.nav_ecar -> startActivity ( Intent ( this, ECarChargingActivity::class.java ) )
                 R.id.logout -> logout()
             }
             true
