@@ -6,6 +6,9 @@ import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
+import com.example.energymanagementapp.energySource.EnergySourceActivity
+import com.example.energymanagementapp.manageEfficiency.PanelManagementActivity
+import com.example.energymanagementapp.turnOnOff.TurnOnOffActivity
 import com.google.android.material.textfield.TextInputEditText
 
 class MainActivity : AppCompatActivity() {

@@ -12,15 +12,109 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Main Page"
-            android:textSize="26sp"
+        <com.github.mikephil.charting.charts.PieChart
+            android:id="@+id/pieChart"
+            android:layout_width="357dp"
+            android:layout_height="256dp"
+            android:layout_margin="32dp"
+            android:layout_marginStart="27dp"
+            android:layout_marginEnd="22dp"
+            android:layout_marginBottom="443dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.github.mikephil.charting.charts.HorizontalBarChart
+            android:id="@+id/barChart"
+            android:layout_width="364dp"
+            android:layout_height="170dp"
+            android:layout_margin="32dp"
+            android:layout_marginStart="27dp"
+            android:layout_marginEnd="27dp"
+            android:paddingStart="20dp"
+            android:paddingLeft="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/pieChart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.571"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/titlu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="76dp"
+            android:layout_marginEnd="76dp"
+            android:layout_marginBottom="80dp"
+            android:text="General Power Consumption"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/barChart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginBottom="21dp"
+            android:text="Today (kw/day)"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/barChart"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/calendar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="23dp"
+            android:layout_marginBottom="21dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintBottom_toTopOf="@+id/barChart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/ic_baseline_calendar_month_24" />
+
+        <CalendarView
+            android:id="@+id/calendarViewMainPage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#98ABA7"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/barChart"
+            app:layout_constraintHorizontal_bias="0.428"
+            app:layout_constraintStart_toStartOf="@+id/barChart"
+            app:layout_constraintTop_toBottomOf="@+id/titlu"
+            app:layout_constraintVertical_bias="0.325" />
+
+        <EditText
+            android:id="@+id/searchText"
+            android:layout_width="301dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="81dp"
+            android:ems="10"
+            android:hint="Seach devices, systems or rooms"
+            android:inputType="textPersonName"
+            android:textColor="#80000000"
+            app:layout_constraintBottom_toTopOf="@+id/barChart"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/searchButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="24dp"
+            android:clickable="true"
+            app:layout_constraintBottom_toTopOf="@+id/calendar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/ic_baseline_search_24" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
