@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.energymanagementapp">
+    package="com.example.energymanagementapp"
+    android:versionCode="1"
+    android:versionName="1.0">
+    
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
     <application
         android:allowBackup="true"
@@ -10,6 +17,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EnergyManagementApp">
         <activity
+            android:name=".consumptionplanner.ConsumptionPlanner"
+            android:exported="false" />
+        <activity
+            android:name=".devicemanager.AddDevice"
+            android:exported="false" />
+        <activity
+            android:name=".devicemanager.EditDevice"
+            android:exported="false" />
+        <activity
+            android:name=".devicemanager.DeviceManager"
+            android:exported="false" />
+        <activity
             android:name=".turnOnOff.TurnOnOffActivity"
             android:exported="false" />
         <activity
@@ -18,11 +37,7 @@
         <activity
             android:name=".manageEfficiency.PanelManagementActivity"
             android:exported="false" />
-        <activity
-            android:name=".LandingPageActivity"
-            android:exported="false"
-            android:label="@string/title_activity_landing_page"
-            android:theme="@style/Theme.EnergyManagementApp.NoActionBar" />
+
         <activity
             android:name=".MainPageActivity"
             android:exported="false" />
@@ -35,9 +50,7 @@
         <activity
             android:name=".SlopeAdjustmentActivity"
             android:exported="false" />
-        <activity
-            android:name=".SlopeAdjustmentActivicty"
-            android:exported="false" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true">

@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
+import com.example.energymanagementapp.consumptionplanner.ConsumptionPlanner
+import com.example.energymanagementapp.devicemanager.DeviceManager
 import com.example.energymanagementapp.energySource.EnergySourceActivity
 import com.example.energymanagementapp.manageEfficiency.PanelManagementActivity
 import com.example.energymanagementapp.turnOnOff.TurnOnOffActivity

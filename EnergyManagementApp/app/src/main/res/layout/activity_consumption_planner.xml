@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".consumptionplanner.ConsumptionPlanner">
+    <LinearLayout
+        android:id="@+id/consumption_display"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/weather_card"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp">
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/idRvWeather"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:layout_marginHorizontal="5dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="5dp"/>
+
+            <TextView
+                android:id="@+id/find_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/idRvWeather"
+                android:layout_alignEnd="@id/idRvWeather"
+                android:layout_marginRight="20dp"
+                android:text="@string/hyperlink"
+                android:clickable="true"
+                android:focusable="true"/>
+        </RelativeLayout>
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/solar_panels_switch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:text="Solar panel"
+            android:textSize="20sp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginHorizontal="20dp">
+            <TextView
+                android:id="@+id/from_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="From date"
+                android:textSize="15sp"
+                android:clickable="false"
+                android:focusable="false"
+                android:layout_marginHorizontal="10dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" - "/>
+
+            <TextView
+                android:id="@+id/to_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="To date"
+                android:textSize="15sp"
+                android:clickable="false"
+                android:focusable="false"
+                android:layout_marginHorizontal="10dp"/>
+
+            <ImageView
+                android:id="@+id/calendarpick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_calendar_month_24"
+                android:layout_marginRight="20dp"
+                android:clickable="true"
+                android:focusable="true"/>
+        </LinearLayout>
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/underLine"
+            app:layout_constraintTop_toBottomOf="@+id/device_list_title"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Devices"
+            android:textSize="20sp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/black"/>
+
+        <Spinner
+            android:id="@+id/device_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:spinnerMode="dialog"
+            android:entries="@array/device_array"
+            android:layout_marginHorizontal="20dp"
+            style="@style/Widget.AppCompat.Spinner.Underlined"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Date: "
+                android:layout_marginRight="20dp"/>
+            <TextView
+                android:id="@+id/device_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select date"
+                android:textSize="15sp"
+                android:clickable="false"
+                android:focusable="false"
+                android:layout_marginRight="20dp"
+                />
+
+            <ImageView
+                android:id="@+id/calendarpickdevice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_calendar_month_24"
+                android:layout_marginRight="50dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginHorizontal="20dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="From:"/>
+            <Spinner
+                android:id="@+id/device_from_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Widget.AppCompat.Spinner.Underlined"
+                android:entries="@array/hour_array"/>
+
+            <TextView
+                android:layout_marginLeft="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="To:"/>
+
+            <Spinner
+                android:id="@+id/device_to_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Widget.AppCompat.Spinner.Underlined"
+                android:entries="@array/hour_array"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/use_plan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="USE PLAN"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp"/>
+
+    </LinearLayout>
+
+    <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+        android:id="@+id/calendarViewSolarPanel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:mcv_selectionColor="#00F"
+        app:mcv_selectionMode="range"
+        app:mcv_showOtherDates="all" />
+
+    <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+        android:id="@+id/calendarViewDevice"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:mcv_selectionColor="#00F"
+        app:mcv_selectionMode="single"
+        app:mcv_showOtherDates="all" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
