@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
+import com.example.energymanagementapp.consumptionplanner.ConsumptionPlanner
 import com.example.energymanagementapp.devicemanager.DeviceManager
 import com.google.android.material.textfield.TextInputEditText
 
@@ -42,7 +43,7 @@ class MainActivity : AppCompatActivity() {
 
         if(msgUser.isEmpty() && msgPass.isEmpty()){
             if(username.text.toString() == "admin" && password.text.toString() == "password"){
-                val intent = Intent ( this, DeviceManager::class.java )
+                val intent = Intent ( this, ConsumptionPlanner::class.java )
                 startActivity ( intent )
             }else{
                 errorMessage.text = "Wrong username or password!"

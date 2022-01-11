@@ -27,6 +27,13 @@ private var dataSource: ArrayList<Device>) : BaseAdapter() {
         return Long.MIN_VALUE
     }
 
+    fun modifyDevice(device: Device,position: Int){
+        dataSource[position] = device
+    }
+
+    fun addDevice(device: Device){
+        dataSource.add(device)
+    }
 
     override fun getView (position: Int,
                           containerView: View?,
@@ -47,6 +54,9 @@ private var dataSource: ArrayList<Device>) : BaseAdapter() {
         val textStatusLocView= rowView.findViewById<TextView>(R.id.device_stat_loc)
         val msg = if (getItem(position).connected) "Online" else "Offline"
         textStatusLocView.text= msg + " - " + getItem(position).location
+
+        val connectedImgView = rowView.findViewById<ImageView>(R.id.connected_img)
+        if (getItem(position).connected) connectedImgView.setImageResource(R.drawable.ic_baseline_check_circle_24) else connectedImgView.setImageResource(R.drawable.ic_baseline_cancel_24)
 
         return rowView
     }
